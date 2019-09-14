@@ -38,8 +38,17 @@ function scramble(s){
   return seperate.join("");
 }
 
+function powers(base, limit, callback){
+  var exp = 0;
+  while(Math.pow(base, exp) <= limit){
+    callback(Math.pow(base, exp));
+    exp++;
+  }
+}
+
 module.exports = {
     change,
     stripQuotes,
-    scramble
+    scramble,
+    powers
 }
