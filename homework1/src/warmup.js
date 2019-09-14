@@ -67,6 +67,21 @@ function interleave(arr, ...values){
   }
   return weave;
 }
+//credit DR TOALS INTROUCTION TO JAVASCRIPT (https://cs.lmu.edu/~ray/notes/javascript/)
+function cylinder(spec){
+ let { radius, height } = spec;
+ const surfaceArea = () => (2* Math.PI * radius * radius) + (2 * Math.PI * radius * height)
+ const volume  = () => Math.PI * radius * radius * height
+ const stretch = (factor) => { height *= factor; }
+ const widen = (factor) => { radius *= factor; }
+
+ const toString = () => `Cylinder with radius ${radius} and height ${height}`
+ return Object.freeze({volume, surfaceArea, get radius() {return radius;}, get height() {return height; }, toString, stretch, widen}, )
+}
+
+function makeCryptoFunctions(key, alg){
+  const crypto = 
+}
 
 
 
@@ -76,5 +91,6 @@ module.exports = {
     scramble,
     powers,
     powersGenerator,
-    interleave
+    interleave,
+    cylinder,
 }
