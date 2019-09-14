@@ -79,11 +79,36 @@ function cylinder(spec){
  return Object.freeze({volume, surfaceArea, get radius() {return radius;}, get height() {return height; }, toString, stretch, widen}, )
 }
 
-function makeCryptoFunctions(key, alg){
-  const crypto = 
+function makeCryptoFunctions(key, algo){
+  const crypto = require('crypto');
+
+  function encrypt(str){
+    const alpha = crypto.createCipher(algo, key)
+    const encoded = alpha.update(str, 'utf8', 'hex') + alpha.final('hex');
+    return encoded;
+  }
+
+  function decrypt(str){
+    const alpha = crypto.createDecipher(algo, key)
+    const decoded = alpha.update(str, 'utf8', 'hex') + alpha.final('hex');
+    return decoded;
+  }
+
+  return [encrypt, decrypt]
 }
 
-
+function randomName({region, gender}) {
+    var prom = require('request-promise');
+    var query = {
+        uri: 'https://uinames.com/api/',
+        qs: {
+            gender,
+            region
+        },
+        json: true
+    };
+    return prom(query).then(body => `${body.name}, ${body.surname}`);
+}
 
 module.exports = {
     change,
@@ -93,4 +118,6 @@ module.exports = {
     powersGenerator,
     interleave,
     cylinder,
+    makeCryptoFunctions,
+    randomName
 }
