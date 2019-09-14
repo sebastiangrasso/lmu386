@@ -30,8 +30,8 @@ function scramble(s){
   const seperate = s.split("");
   const letters = seperate.length-1;
   for (var i = letters; i>0; i--){
-    const randSpot = Math.floor(Math.random()* (i+1));
     const temp = seperate[i];
+    const randSpot = Math.floor(Math.random()* (i+1));
     seperate[i] = seperate[randSpot];
     seperate[randSpot] = temp;
   }
@@ -55,6 +55,19 @@ function* powersGenerator(base, limit) {
   }
 }
 
+function interleave(arr, ...values){
+  const larger = Math.max(arr.length, values.length);
+  const weave = [];
+
+  for (var a = 0; a < larger; a++){
+    if (a < arr.length)
+      weave.push(arr[a]);
+    if (a < values.length)
+      weave.push(values[a]);
+  }
+  return weave;
+}
+
 
 
 module.exports = {
@@ -62,5 +75,6 @@ module.exports = {
     stripQuotes,
     scramble,
     powers,
-    powersGenerator
+    powersGenerator,
+    interleave
 }
