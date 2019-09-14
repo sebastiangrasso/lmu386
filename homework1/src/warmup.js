@@ -46,9 +46,21 @@ function powers(base, limit, callback){
   }
 }
 
+//credit DR TOALS INTROUCTION TO JAVASCRIPT (https://cs.lmu.edu/~ray/notes/javascript/)
+function* powersGenerator(base, limit) {
+  let value = 1;
+  while (value <= limit) {
+    yield value;
+    value *= base;
+  }
+}
+
+
+
 module.exports = {
     change,
     stripQuotes,
     scramble,
-    powers
+    powers,
+    powersGenerator
 }
