@@ -22,6 +22,11 @@ function change(cents){
   return coins;
 }
 
+function stripQuotes(string){
+  return string.replace(/['"]+/g, '');
+}
+
 module.exports = {
-    change
+    change,
+    stripQuotes
 }
