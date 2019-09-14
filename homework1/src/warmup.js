@@ -26,7 +26,20 @@ function stripQuotes(string){
   return string.replace(/['"]+/g, '');
 }
 
+function scramble(s){
+  const seperate = s.split("");
+  const letters = seperate.length-1;
+  for (var i = letters; i>0; i--){
+    const randSpot = Math.floor(Math.random()* (i+1));
+    const temp = seperate[i];
+    seperate[i] = seperate[randSpot];
+    seperate[randSpot] = temp;
+  }
+  return seperate.join("");
+}
+
 module.exports = {
     change,
-    stripQuotes
+    stripQuotes,
+    scramble
 }
