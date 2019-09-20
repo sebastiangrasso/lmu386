@@ -52,20 +52,17 @@ function* powersGenerator(base, limit) {
 }
 
 function say(word) {
-  return nextWord(word);
-//   if (word === undefined){
-//     return ''
-//   }
-//   else {
-//     const nextWord = undefined;
-//       if (!nextWord) {
-//         nextWord = word;
-//       }
-//       else{
-//     }
-//
-// function
-//   }
+  if (!word) {
+    return '';
+  }
+
+  return (nextWord) => {
+    if (!nextWord) {
+      nextWord = word;
+    } else {
+      nextWord = (`${word} ${nextWord}`);
+    }
+  };
 }
 
 function interleave(arr, ...values) {
