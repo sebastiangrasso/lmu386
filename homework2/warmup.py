@@ -38,3 +38,24 @@ def powers(base, limit):
     while successive <= limit:
         yield successive
         successive *= base
+
+#Problem 5
+def triples(value):
+    triplelist = list()
+    for a in range(1, value+1):
+        for b in range(1, value+1):
+            for c in range(1, value+1):
+                if (a ** 2) + (b ** 2) == (c ** 2) and (a < b < c):
+                    tripleList.append(a,b,c)
+    return triplelist
+
+def say(firstWord = ''):
+    if firstWord == '':
+        return firstWord
+
+    def sayAgain(nextWord = ''):
+        if nextWord == '':
+            return firstWord
+        return say(firstWord + ' ' + nextWord)
+
+    return sayAgain
