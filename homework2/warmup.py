@@ -63,3 +63,28 @@ def say(firstword = ''):
     return say_again
 
 #Problem 7
+def interleave(original, *values):
+    weave = original
+    index = 0
+    for value in values:
+        index += 1
+        weave.insert(index, value)
+        if index < len(original):
+            index +=1
+    return weave
+
+#Problem 8
+class Cyclinder:
+    def __init__(self, radius=1, height =1):
+        self.radius = radius
+        self.height = height
+        @property
+        def volume(self):
+            return math.pi * self.radius ** 2 * self.height
+        @property
+        def surface_area(self):
+            return 2 * math.pi * self.radius * self.height + 2 * math.pi * self.radius ** 2
+        def stretch(self, stretch_factor):
+            self.height*= stretch_factor
+        def widen(self, widen_factor):
+            self.radius*= widen_factor
