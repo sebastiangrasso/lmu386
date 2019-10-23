@@ -5,7 +5,6 @@ from cryptography.fernet import Fernet
 import re
 import requests
 import random
-import simplejson as json
 
 #Problem 1
 def change(number):
@@ -42,13 +41,13 @@ def powers(base, limit):
 
 #Problem 5
 def triples(value):
-    triplelist = list()
+    triple_list = list()
     for a in range(1, value+1):
         for b in range(1, value+1):
             for c in range(1, value+1):
                 if (a ** 2) + (b ** 2) == (c ** 2) and (a < b < c):
-                    tripleList.append(a,b,c)
-    return triplelist
+                    triple_list.append((a,b,c))
+    return triple_list
 
 #Problem 6
 def say(firstword = ''):
@@ -64,7 +63,7 @@ def say(firstword = ''):
 
 #Problem 7
 def interleave(original, *values):
-    weave = original
+    weave = original.copy()
     index = 0
     for value in values:
         index += 1
@@ -74,17 +73,37 @@ def interleave(original, *values):
     return weave
 
 #Problem 8
-class Cyclinder:
+class Cylinder:
     def __init__(self, radius=1, height =1):
         self.radius = radius
         self.height = height
-        @property
-        def volume(self):
-            return math.pi * self.radius ** 2 * self.height
-        @property
-        def surface_area(self):
-            return 2 * math.pi * self.radius * self.height + 2 * math.pi * self.radius ** 2
-        def stretch(self, stretch_factor):
-            self.height*= stretch_factor
-        def widen(self, widen_factor):
-            self.radius*= widen_factor
+    @property
+    def volume(self):
+        return math.pi * self.radius ** 2 * self.height
+    @property
+    def surface_area(self):
+        return 2 * math.pi * self.radius * self.height + 2 * math.pi * self.radius ** 2
+
+    def stretch(self, stretch_factor):
+        self.height*= stretch_factor
+    def widen(self, widen_factor):
+        self.radius*= widen_factor
+
+#Problem 9
+def make_crypto_functions(key):
+    code = Fernet(key)
+
+    def encrypt(message):
+        return code.encrypt(message)
+    def decrypt(message):
+        return code.decrypt(message)
+
+    return encrypt, decrypt
+
+#Problem 10
+def random_name(**kwargs):
+    url = 'http://uninames.com/api/'
+    info = requests.get(url = url, params = kwargs)
+    person = json.loads(info.content)
+
+    return person.get('surname') + ', ' + person.get('name')
