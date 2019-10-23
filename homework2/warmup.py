@@ -5,6 +5,7 @@ from cryptography.fernet import Fernet
 import re
 import requests
 import random
+import simplejson as json
 
 #Problem 1
 def change(number):
@@ -102,8 +103,10 @@ def make_crypto_functions(key):
 
 #Problem 10
 def random_name(**kwargs):
-    url = 'http://uninames.com/api/'
-    info = requests.get(url = url, params = kwargs)
-    person = json.loads(info.content)
-
-    return person.get('surname') + ', ' + person.get('name')
+    url = 'http://uinames.com/api/'
+    query = requests.get(url = url, params = kwargs)
+    response = json.loads(query.content)
+    print(response)
+    if query.status_code < 200 or query.status_code > 299:
+        raise ValueError(response)
+    return response.get('surname') + ', ' + response.get('name')
