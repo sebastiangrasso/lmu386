@@ -5,6 +5,7 @@ from cryptography.fernet import Fernet
 import re
 import requests
 import random
+import simplejson as json
 
 #Problem 1
 def change(number):
@@ -49,64 +50,16 @@ def triples(value):
                     tripleList.append(a,b,c)
     return triplelist
 
-def say(firstWord = ''):
-    if firstWord == '':
-        return firstWord
+#Problem 6
+def say(firstword = ''):
+    if firstword == '':
+        return firstword
 
-    def sayAgain(nextWord = ''):
-        if nextWord == '':
-            return firstWord
-        return say(firstWord + ' ' + nextWord)
+    def say_again(nextword = ''):
+        if nextword == '':
+            return firstword
+        return say(firstword + ' ' + nextword)
 
-    return sayAgain
+    return say_again
 
-#7
-def interleave(array, *argv):
-    result = []
-    arrayLength = len(array)
-    valuesLength = 0
-    for arg in argv:
-        valuesLength+=1
-    max_len = max(arrayLength, valuesLength)
-    for i in range(max_len):
-        if (i < arrayLength):
-            result.append(array[i])
-        if (i < valuesLength):
-            result.append(argv[i])
-    return result
-
-#8
-class Cylinder:
-    def __init__(self, radius = 1, height = 1):
-        self.radius = radius
-        self.height = height
-    @property
-    def volume(self):
-        return math.pi * self.radius * self.radius * self.height
-    @property
-    def surface_area(self):
-        return 2 * math.pi * self.radius * self.height + (2 * math.pi * self.radius * self.radius)
-    def stretch(self, stretch_factor):
-        self.height *= stretch_factor
-    def widen(self, widen_factor):
-        self.radius *= widen_factor
-
-
-#9
-def make_crypto_functions(key):
-    k = Fernet(key)
-    def encrypt(s):
-        return k.encrypt(s)
-    def decrypt(token):
-        return k.decrypt(token)
-    return (encrypt, decrypt)
-
-#10
-def random_name(**k):
-    url = 'http://uinames.com/api/'
-    info = requests.get(url=url, params=k)
-    person = json.loads(info.content)
-    if 'error' in person:
-        raise ValueError('{"error": "Invalid gender"}')
-    result = person.get('surname') + ', ' + person.get('name')
-    return result
+#Problem 7
