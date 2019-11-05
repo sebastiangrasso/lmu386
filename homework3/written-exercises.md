@@ -17,7 +17,7 @@ The output of the program is:
 2  
 According to the rules of static scoping, the x = 5 is defined within the function g but the reference to x in function f() follows its reference to it's initial declaration in the environment, x = 2. After the function g() is called and the 5 is printed, the value of x reverts back to it's original reference, and prints 2. 
 
-If C++ used dynamic scoping, the order of the output would be:
+If C++ used dynamic scoping, the order of the output would be:   
 5  
 5  
 2  
