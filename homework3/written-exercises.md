@@ -6,10 +6,10 @@ Address of A[3][7] is 0x7242799317b0
 These addresses refer to the memory location in which these values are stored. When the struct is created, members of A[x][y] are assigned values sequentially from the available memory addresses, explaining why these values are located a few memory addresses away.  
 
 ## Problem 2
-double *a[n]; -> a is an array of n pointers to doubles 
-double (*b)[n]; -> b is a pointer to an an array of n doubles
-double (*c())[n] -> c is a function with no parameters that returns a pointer to an array of n doubles
-double (*d[n])() -> d is a function that returns an array of n pointers to doubles
+double *a[n]; -> a is an array of n pointers to doubles  
+double (*b)[n]; -> b is a pointer to an an array of n doubles  
+double (*c())[n] -> c is a function with no parameters that returns a pointer to an array of n doubles  
+double (*d[n])() -> d is a function that returns an array of n pointers to doubles  
 
 
 ## Problem 3
