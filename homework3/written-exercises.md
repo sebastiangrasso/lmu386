@@ -1,4 +1,4 @@
-# Homework 3
+# Homework 3 - Sebastian Grasso
 
 ## Problem 1
 
@@ -8,6 +8,7 @@
 f is a function that accepts two parameters: 
   1. Pointer to a function that accepts two parameters (int and an array of ints) and returns an int
   2. int
+  
 f returns a pointer to a function that takes in 1 or more ints and returns an int
 
 ## Problem 4
