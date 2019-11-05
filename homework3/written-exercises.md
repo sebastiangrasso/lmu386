@@ -1,6 +1,9 @@
 # Homework 3 - Sebastian Grasso
 
 ## Problem 1
+Address of A[0][0] is 0x7242799316a0  
+Address of A[3][7] is 0x7242799317b0  
+These addresses refer to the memory location in which these values are stored. When the struct is created, members of A[x][y] are assigned values sequentially from the available memory addresses, explaining why these values are located a few memory addresses away.  
 
 ## Problem 2
 
