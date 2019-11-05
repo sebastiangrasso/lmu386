@@ -23,10 +23,10 @@ If C++ used dynamic scoping, the order of the output would be:
 2  
 This is because in dynamically scoped languages, the reference to x in f() refers to the value of x declared in it's most recent envionment, g().
 ## Problem 6
-Raw Array  
+Raw Array    
 `template <typename T>  
- void scramble(T* shuffle, int length)`
+void scramble(T* shuffle, int length)`
   
-std::array
-`template <typename T, unsigned long length>
+std::array  
+`template <typename T, unsigned long length>  
  void scramble(array<T, length>)`
