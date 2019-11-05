@@ -28,5 +28,5 @@ Raw Array
 void scramble(T* shuffle, int length)`
   
 std::array  
-`template <typename T, unsigned long length>  
- void scramble(array<T, length>)`
+```template <typename T, unsigned long length>  
+ void scramble(array<T, length>)```
