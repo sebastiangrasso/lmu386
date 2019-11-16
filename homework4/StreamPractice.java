@@ -21,7 +21,7 @@ public class StreamPractice {
             .lines()
             .flatMap(nonWord::splitAsStream)
             .filter(s -> s.length() > 0)
-            //Collect Stream into TreeMap
+            //Collect Stream into TreeMap of String lengths with corresponding number of words
             .collect(groupingBy(String::length, TreeMap::new, counting()));
     }
 
