@@ -36,8 +36,28 @@ func firstUppercased(of: [String], longerThan: Int) -> String? {
 }
 
 func sumOfCubesOfOdds(inTheList: [Int]) -> Int {
-    let result = Int(inTheList.filter{abs($0) % 2 == 1}.map{pow(Double($0),3)}.reduce(0, +))
-    print(result)
-    return result
+    return Int(inTheList.filter{abs($0) % 2 == 1}.map{pow(Double($0),3)}.reduce(0, +))
 }
 
+protocol Animal {
+    var name: String { get }
+    var sound: String { get }
+}
+
+extension Animal {
+    func speak() -> String {
+        return "\(name) says \(sound)"
+    }
+}
+struct Horse: Animal {
+    let name: String
+    let sound = "neigh"
+}
+struct Cow: Animal {
+    let name: String
+    let sound = "moooo"
+}
+struct Sheep: Animal {
+    let name: String
+    let sound = "baaaa"
+}

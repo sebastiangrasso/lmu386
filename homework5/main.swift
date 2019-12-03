@@ -29,3 +29,16 @@ assert(sumOfCubesOfOdds(inTheList: []) == 0)
 assert(sumOfCubesOfOdds(inTheList: [8]) == 0)
 assert(sumOfCubesOfOdds(inTheList: [3]) == 27)
 assert(sumOfCubesOfOdds(inTheList: [-3, 2, -8, 5, -1]) == 97)
+
+let h: Animal = Horse(name: "CJ")
+assert(h.speak() == "CJ says neigh")
+let c: Animal = Cow(name: "Bessie")
+assert(c.speak() == "Bessie says moooo")
+assert(Sheep(name:"Little Lamb").speak() == "Little Lamb says baaaa")
+
+// Test that Animal really is a protocol with the default method
+struct Rat: Animal {
+    let name: String
+    let sound = "squeak"
+}
+assert(Rat(name:"Oreo").speak() == "Oreo says squeak")
