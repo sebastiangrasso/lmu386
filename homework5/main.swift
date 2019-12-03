@@ -25,3 +25,7 @@ assert(firstUppercased(of: [], longerThan: 5) == nil)
 assert(firstUppercased(of: ["a", "bcdef"], longerThan: 5) == nil)
 assert(firstUppercased(of: ["a", "abcdef", "g"], longerThan: 5)! == "ABCDEF")
 
+assert(sumOfCubesOfOdds(inTheList: []) == 0)
+assert(sumOfCubesOfOdds(inTheList: [8]) == 0)
+assert(sumOfCubesOfOdds(inTheList: [3]) == 27)
+assert(sumOfCubesOfOdds(inTheList: [-3, 2, -8, 5, -1]) == 97)

@@ -34,3 +34,10 @@ func firstUppercased(of: [String], longerThan: Int) -> String? {
     }
     return nil
 }
+
+func sumOfCubesOfOdds(inTheList: [Int]) -> Int {
+    let result = Int(inTheList.filter{abs($0) % 2 == 1}.map{pow(Double($0),3)}.reduce(0, +))
+    print(result)
+    return result
+}
+
